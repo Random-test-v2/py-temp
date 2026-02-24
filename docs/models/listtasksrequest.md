@@ -1,0 +1,20 @@
+# ListTasksRequest
+
+
+## Fields
+
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `created_by`                                                     | *Optional[str]*                                                  | :heavy_minus_sign:                                               | N/A                                                              |
+| `end_time`                                                       | *Optional[str]*                                                  | :heavy_minus_sign:                                               | N/A                                                              |
+| `entity_type`                                                    | [Optional[models.EntityType]](../models/entitytype.md)           | :heavy_minus_sign:                                               | N/A                                                              |
+| `expand`                                                         | *Optional[str]*                                                  | :heavy_minus_sign:                                               | N/A                                                              |
+| `limit`                                                          | *Optional[int]*                                                  | :heavy_minus_sign:                                               | N/A                                                              |
+| `offset`                                                         | *Optional[int]*                                                  | :heavy_minus_sign:                                               | N/A                                                              |
+| `order`                                                          | [Optional[models.ListTasksOrder]](../models/listtasksorder.md)   | :heavy_minus_sign:                                               | N/A                                                              |
+| `scheduled_task_id`                                              | *Optional[str]*                                                  | :heavy_minus_sign:                                               | N/A                                                              |
+| `sort`                                                           | *Optional[str]*                                                  | :heavy_minus_sign:                                               | N/A                                                              |
+| `start_time`                                                     | *Optional[str]*                                                  | :heavy_minus_sign:                                               | N/A                                                              |
+| `status`                                                         | [Optional[models.ListTasksStatus]](../models/listtasksstatus.md) | :heavy_minus_sign:                                               | N/A                                                              |
+| `task_status`                                                    | [Optional[models.TaskStatus]](../models/taskstatus.md)           | :heavy_minus_sign:                                               | N/A                                                              |
+| `task_type`                                                      | [Optional[models.TaskType]](../models/tasktype.md)               | :heavy_minus_sign:                                               | N/A                                                              |

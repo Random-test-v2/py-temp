@@ -1,0 +1,14 @@
+# DtoGetCostAnalyticsRequest
+
+
+## Fields
+
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `end_time`                                                             | *Optional[str]*                                                        | :heavy_minus_sign:                                                     | N/A                                                                    |
+| `expand`                                                               | List[*str*]                                                            | :heavy_minus_sign:                                                     | Expand options - specify which entities to expand                      |
+| `external_customer_id`                                                 | *Optional[str]*                                                        | :heavy_minus_sign:                                                     | Optional - for specific customer                                       |
+| `feature_ids`                                                          | List[*str*]                                                            | :heavy_minus_sign:                                                     | Additional filters                                                     |
+| `limit`                                                                | *Optional[int]*                                                        | :heavy_minus_sign:                                                     | Pagination                                                             |
+| `offset`                                                               | *Optional[int]*                                                        | :heavy_minus_sign:                                                     | N/A                                                                    |
+| `start_time`                                                           | *Optional[str]*                                                        | :heavy_minus_sign:                                                     | Time range fields (optional - defaults to last 7 days if not provided) |

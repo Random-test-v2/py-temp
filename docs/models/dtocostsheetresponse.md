@@ -1,0 +1,20 @@
+# DtoCostsheetResponse
+
+
+## Fields
+
+| Field                                                          | Type                                                           | Required                                                       | Description                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `created_at`                                                   | *Optional[str]*                                                | :heavy_minus_sign:                                             | N/A                                                            |
+| `created_by`                                                   | *Optional[str]*                                                | :heavy_minus_sign:                                             | N/A                                                            |
+| `description`                                                  | *Optional[str]*                                                | :heavy_minus_sign:                                             | N/A                                                            |
+| `environment_id`                                               | *Optional[str]*                                                | :heavy_minus_sign:                                             | N/A                                                            |
+| `id`                                                           | *Optional[str]*                                                | :heavy_minus_sign:                                             | N/A                                                            |
+| `lookup_key`                                                   | *Optional[str]*                                                | :heavy_minus_sign:                                             | N/A                                                            |
+| `metadata`                                                     | Dict[str, *str*]                                               | :heavy_minus_sign:                                             | N/A                                                            |
+| `name`                                                         | *Optional[str]*                                                | :heavy_minus_sign:                                             | N/A                                                            |
+| `prices`                                                       | List[[models.DtoPriceResponse](../models/dtopriceresponse.md)] | :heavy_minus_sign:                                             | Associated prices                                              |
+| `status`                                                       | [Optional[models.TypesStatus]](../models/typesstatus.md)       | :heavy_minus_sign:                                             | N/A                                                            |
+| `tenant_id`                                                    | *Optional[str]*                                                | :heavy_minus_sign:                                             | N/A                                                            |
+| `updated_at`                                                   | *Optional[str]*                                                | :heavy_minus_sign:                                             | N/A                                                            |
+| `updated_by`                                                   | *Optional[str]*                                                | :heavy_minus_sign:                                             | N/A                                                            |

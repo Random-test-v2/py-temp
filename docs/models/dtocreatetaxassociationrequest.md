@@ -1,0 +1,14 @@
+# DtoCreateTaxAssociationRequest
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `auto_apply`                                                         | *Optional[bool]*                                                     | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `currency`                                                           | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `entity_id`                                                          | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |
+| `entity_type`                                                        | [models.TypesTaxRateEntityType](../models/typestaxrateentitytype.md) | :heavy_check_mark:                                                   | N/A                                                                  |
+| `metadata`                                                           | Dict[str, *str*]                                                     | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `priority`                                                           | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `tax_rate_code`                                                      | *str*                                                                | :heavy_check_mark:                                                   | N/A                                                                  |

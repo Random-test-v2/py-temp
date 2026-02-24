@@ -1,0 +1,12 @@
+# DtoCancelScheduleRequest
+
+Request to cancel a subscription schedule (supports two modes)
+
+
+## Fields
+
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `schedule_id`                                                                                                | *Optional[str]*                                                                                              | :heavy_minus_sign:                                                                                           | schedule_id is the ID of the schedule to cancel (optional if subscription_id and schedule_type are provided) |
+| `schedule_type`                                                                                              | [Optional[models.TypesSubscriptionScheduleChangeType]](../models/typessubscriptionschedulechangetype.md)     | :heavy_minus_sign:                                                                                           | N/A                                                                                                          |
+| `subscription_id`                                                                                            | *Optional[str]*                                                                                              | :heavy_minus_sign:                                                                                           | subscription_id is the ID of the subscription (required if schedule_id is not provided)                      |

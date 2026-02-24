@@ -1,0 +1,11 @@
+# DtoCustomerUsageSummaryResponse
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `customer_id`                                                                    | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `features`                                                                       | List[[models.DtoFeatureUsageSummary](../models/dtofeatureusagesummary.md)]       | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `pagination`                                                                     | [Optional[models.TypesPaginationResponse]](../models/typespaginationresponse.md) | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `period`                                                                         | [Optional[models.DtoBillingPeriodInfo]](../models/dtobillingperiodinfo.md)       | :heavy_minus_sign:                                                               | N/A                                                                              |

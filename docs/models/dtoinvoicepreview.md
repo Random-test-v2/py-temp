@@ -1,0 +1,13 @@
+# DtoInvoicePreview
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `currency`                                                                       | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | currency is the currency for all amounts                                         |
+| `due_date`                                                                       | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | due_date is when the invoice would be due                                        |
+| `line_items`                                                                     | List[[models.DtoInvoiceLineItemPreview](../models/dtoinvoicelineitempreview.md)] | :heavy_minus_sign:                                                               | line_items contains preview of line items                                        |
+| `subtotal`                                                                       | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | subtotal is the subtotal amount before taxes                                     |
+| `tax_amount`                                                                     | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | tax_amount is the total tax amount                                               |
+| `total`                                                                          | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | total is the total amount including taxes                                        |

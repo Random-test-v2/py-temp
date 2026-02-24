@@ -1,0 +1,12 @@
+# DtoSourceUsageItem
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `cost`                                                                              | *Optional[str]*                                                                     | :heavy_minus_sign:                                                                  | cost is the cost attributed to this source for the line item                        |
+| `event_count`                                                                       | *Optional[int]*                                                                     | :heavy_minus_sign:                                                                  | event_count is the number of events from this source (optional)                     |
+| `percentage`                                                                        | *Optional[str]*                                                                     | :heavy_minus_sign:                                                                  | percentage is the percentage of total line item cost from this source (optional)    |
+| `source`                                                                            | *Optional[str]*                                                                     | :heavy_minus_sign:                                                                  | source is the name of the event source                                              |
+| `usage`                                                                             | *Optional[str]*                                                                     | :heavy_minus_sign:                                                                  | usage is the total usage amount from this source (optional, for additional context) |

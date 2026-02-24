@@ -1,0 +1,18 @@
+# DtoProrationDetails
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `charge_amount`                                                      | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | charge_amount is the charge amount for the new subscription          |
+| `charge_description`                                                 | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | charge_description describes what the charge is for                  |
+| `credit_amount`                                                      | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | credit_amount is the credit amount from the old subscription         |
+| `credit_description`                                                 | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | credit_description describes what the credit is for                  |
+| `currency`                                                           | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | currency is the currency for all amounts                             |
+| `current_period_end`                                                 | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | current_period_end is the end of the current billing period          |
+| `current_period_start`                                               | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | current_period_start is the start of the current billing period      |
+| `days_remaining`                                                     | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | days_remaining is the number of days remaining in the current period |
+| `days_used`                                                          | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | days_used is the number of days used in the current period           |
+| `net_amount`                                                         | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | net_amount is the net amount (charge - credit)                       |
+| `proration_date`                                                     | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | proration_date is the date used for proration calculations           |

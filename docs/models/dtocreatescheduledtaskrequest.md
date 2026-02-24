@@ -1,0 +1,12 @@
+# DtoCreateScheduledTaskRequest
+
+
+## Fields
+
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `connection_id`                                                                  | *str*                                                                            | :heavy_check_mark:                                                               | N/A                                                                              |
+| `enabled`                                                                        | *Optional[bool]*                                                                 | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `entity_type`                                                                    | [models.TypesScheduledTaskEntityType](../models/typesscheduledtaskentitytype.md) | :heavy_check_mark:                                                               | N/A                                                                              |
+| `interval`                                                                       | [models.TypesScheduledTaskInterval](../models/typesscheduledtaskinterval.md)     | :heavy_check_mark:                                                               | N/A                                                                              |
+| `job_config`                                                                     | [models.TypesS3JobConfig](../models/typess3jobconfig.md)                         | :heavy_check_mark:                                                               | N/A                                                                              |

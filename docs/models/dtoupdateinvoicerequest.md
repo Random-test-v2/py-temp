@@ -1,0 +1,10 @@
+# DtoUpdateInvoiceRequest
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `due_date`                                                                              | *Optional[str]*                                                                         | :heavy_minus_sign:                                                                      | N/A                                                                                     |
+| `invoice_pdf_url`                                                                       | *Optional[str]*                                                                         | :heavy_minus_sign:                                                                      | invoice_pdf_url is the URL where customers can download the PDF version of this invoice |
+| `metadata`                                                                              | Dict[str, *str*]                                                                        | :heavy_minus_sign:                                                                      | N/A                                                                                     |

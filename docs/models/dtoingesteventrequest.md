@@ -1,0 +1,14 @@
+# DtoIngestEventRequest
+
+
+## Fields
+
+| Field                                                         | Type                                                          | Required                                                      | Description                                                   | Example                                                       |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `customer_id`                                                 | *Optional[str]*                                               | :heavy_minus_sign:                                            | N/A                                                           | customer456                                                   |
+| `event_id`                                                    | *Optional[str]*                                               | :heavy_minus_sign:                                            | N/A                                                           | event123                                                      |
+| `event_name`                                                  | *str*                                                         | :heavy_check_mark:                                            | N/A                                                           | api_request                                                   |
+| `external_customer_id`                                        | *str*                                                         | :heavy_check_mark:                                            | N/A                                                           | customer456                                                   |
+| `properties`                                                  | Dict[str, *str*]                                              | :heavy_minus_sign:                                            | Handled separately for dynamic columns                        | {<br/>"\"response_status\"": "200}",<br/>"{\"request_size\"": "100"<br/>} |
+| `source`                                                      | *Optional[str]*                                               | :heavy_minus_sign:                                            | N/A                                                           | api                                                           |
+| `timestamp`                                                   | *Optional[str]*                                               | :heavy_minus_sign:                                            | Handled separately due to parsing                             | 2024-03-20T15:04:05Z                                          |

@@ -1,0 +1,10 @@
+# GetInvoiceRequest
+
+
+## Fields
+
+| Field                                                                                   | Type                                                                                    | Required                                                                                | Description                                                                             |
+| --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `id`                                                                                    | *str*                                                                                   | :heavy_check_mark:                                                                      | Invoice ID                                                                              |
+| `expand_by_source`                                                                      | *Optional[bool]*                                                                        | :heavy_minus_sign:                                                                      | Include source-level price breakdown for usage line items (legacy)                      |
+| `group_by`                                                                              | List[*str*]                                                                             | :heavy_minus_sign:                                                                      | Group usage breakdown by specified fields (e.g., source, feature_id, properties.org_id) |

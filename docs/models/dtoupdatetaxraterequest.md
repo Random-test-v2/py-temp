@@ -1,0 +1,12 @@
+# DtoUpdateTaxRateRequest
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `code`                                                                        | *Optional[str]*                                                               | :heavy_minus_sign:                                                            | code is the updated unique alphanumeric identifier for the tax rate           |
+| `description`                                                                 | *Optional[str]*                                                               | :heavy_minus_sign:                                                            | description is the updated text description for the tax rate                  |
+| `metadata`                                                                    | Dict[str, *str*]                                                              | :heavy_minus_sign:                                                            | metadata contains updated key-value pairs that will replace existing metadata |
+| `name`                                                                        | *Optional[str]*                                                               | :heavy_minus_sign:                                                            | name is the updated human-readable name for the tax rate                      |
+| `tax_rate_status`                                                             | [Optional[models.TypesTaxRateStatus]](../models/typestaxratestatus.md)        | :heavy_minus_sign:                                                            | N/A                                                                           |

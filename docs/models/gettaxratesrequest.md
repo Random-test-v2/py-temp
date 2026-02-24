@@ -1,0 +1,17 @@
+# GetTaxRatesRequest
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `end_time`                                                           | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `expand`                                                             | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `limit`                                                              | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `offset`                                                             | *Optional[int]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `order`                                                              | [Optional[models.GetTaxRatesOrder]](../models/gettaxratesorder.md)   | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `scope`                                                              | [Optional[models.Scope]](../models/scope.md)                         | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `start_time`                                                         | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `status`                                                             | [Optional[models.GetTaxRatesStatus]](../models/gettaxratesstatus.md) | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `taxrate_codes`                                                      | List[*str*]                                                          | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `taxrate_ids`                                                        | List[*str*]                                                          | :heavy_minus_sign:                                                   | N/A                                                                  |

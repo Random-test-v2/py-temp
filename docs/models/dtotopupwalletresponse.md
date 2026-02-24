@@ -1,0 +1,10 @@
+# DtoTopUpWalletResponse
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `invoice_id`                                                                               | *Optional[str]*                                                                            | :heavy_minus_sign:                                                                         | Invoice ID if an invoice was created (only for PURCHASED_CREDIT_INVOICED)                  |
+| `wallet`                                                                                   | [Optional[models.DtoWalletResponse]](../models/dtowalletresponse.md)                       | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `wallet_transaction`                                                                       | [Optional[models.DtoWalletTransactionResponse]](../models/dtowallettransactionresponse.md) | :heavy_minus_sign:                                                                         | N/A                                                                                        |

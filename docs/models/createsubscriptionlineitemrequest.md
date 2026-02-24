@@ -1,0 +1,9 @@
+# CreateSubscriptionLineItemRequest
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `id`                                                                                             | *str*                                                                                            | :heavy_check_mark:                                                                               | Subscription ID                                                                                  |
+| `body`                                                                                           | [models.DtoCreateSubscriptionLineItemRequest](../models/dtocreatesubscriptionlineitemrequest.md) | :heavy_check_mark:                                                                               | Create Line Item Request                                                                         |

@@ -1,0 +1,17 @@
+# DtoGetDetailedCostAnalyticsResponse
+
+
+## Fields
+
+| Field                                                                | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `cost_analytics`                                                     | List[[models.DtoCostAnalyticItem](../models/dtocostanalyticitem.md)] | :heavy_minus_sign:                                                   | Cost analytics array (flattened from nested structure)               |
+| `currency`                                                           | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `end_time`                                                           | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `margin`                                                             | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | Revenue - Cost                                                       |
+| `margin_percent`                                                     | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | (Margin / Revenue) * 100                                             |
+| `roi`                                                                | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | (Revenue - Cost) / Cost                                              |
+| `roi_percent`                                                        | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | ROI * 100                                                            |
+| `start_time`                                                         | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `total_cost`                                                         | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | N/A                                                                  |
+| `total_revenue`                                                      | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | Derived metrics                                                      |
