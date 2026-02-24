@@ -19,15 +19,15 @@ Use when defining an optional purchasable item (e.g. extra storage or support ti
 
 <!-- UsageSnippet language="python" operationID="createAddon" method="post" path="/addons" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
+    res = flexprice.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
 
     # Handle response
     print(res)
@@ -51,11 +51,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_addon_by_lookup_key
 
@@ -65,15 +65,15 @@ Use when resolving an addon by external id (e.g. from your product catalog). Ide
 
 <!-- UsageSnippet language="python" operationID="getAddonByLookupKey" method="get" path="/addons/lookup/{lookup_key}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.addons.get_addon_by_lookup_key(lookup_key="<value>")
+    res = flexprice.addons.get_addon_by_lookup_key(lookup_key="<value>")
 
     # Handle response
     print(res)
@@ -93,11 +93,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## query_addon
 
@@ -107,15 +107,15 @@ Use when listing or searching addons (e.g. catalog or subscription builder). Ret
 
 <!-- UsageSnippet language="python" operationID="queryAddon" method="post" path="/addons/search" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.addons.query_addon()
+    res = flexprice.addons.query_addon()
 
     # Handle response
     print(res)
@@ -146,11 +146,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_addon
 
@@ -160,15 +160,15 @@ Use when you need to load a single addon (e.g. for display or to attach to a sub
 
 <!-- UsageSnippet language="python" operationID="getAddon" method="get" path="/addons/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.addons.get_addon(id="<id>")
+    res = flexprice.addons.get_addon(id="<id>")
 
     # Handle response
     print(res)
@@ -188,11 +188,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## update_addon
 
@@ -202,15 +202,15 @@ Use when changing addon details (e.g. name, pricing, or metadata).
 
 <!-- UsageSnippet language="python" operationID="updateAddon" method="put" path="/addons/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.addons.update_addon(id="<id>")
+    res = flexprice.addons.update_addon(id="<id>")
 
     # Handle response
     print(res)
@@ -233,11 +233,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## delete_addon
 
@@ -247,15 +247,15 @@ Use when retiring an addon (e.g. end-of-life). Returns 200 with success message.
 
 <!-- UsageSnippet language="python" operationID="deleteAddon" method="delete" path="/addons/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.addons.delete_addon(id="<id>")
+    res = flexprice.addons.delete_addon(id="<id>")
 
     # Handle response
     print(res)
@@ -275,8 +275,8 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |

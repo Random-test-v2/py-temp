@@ -20,15 +20,15 @@ Use when listing or managing scheduled tasks in an admin UI. Returns a list; sup
 
 <!-- UsageSnippet language="python" operationID="listScheduledTasks" method="get" path="/tasks/scheduled" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.scheduled_tasks.list_scheduled_tasks()
+    res = flexprice.scheduled_tasks.list_scheduled_tasks()
 
     # Handle response
     print(res)
@@ -53,11 +53,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## create_scheduled_task
 
@@ -67,15 +67,15 @@ Use when setting up recurring data exports or other scheduled jobs. Ideal for re
 
 <!-- UsageSnippet language="python" operationID="createScheduledTask" method="post" path="/tasks/scheduled" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.scheduled_tasks.create_scheduled_task(connection_id="<id>", entity_type="credit_topups", interval="hourly", job_config={})
+    res = flexprice.scheduled_tasks.create_scheduled_task(connection_id="<id>", entity_type="credit_topups", interval="hourly", job_config={})
 
     # Handle response
     print(res)
@@ -99,11 +99,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## schedule_update_billing_period
 
@@ -113,15 +113,15 @@ Use when you need to trigger a billing-period update workflow (e.g. to recalcula
 
 <!-- UsageSnippet language="python" operationID="scheduleUpdateBillingPeriod" method="post" path="/tasks/scheduled/schedule-update-billing-period" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.scheduled_tasks.schedule_update_billing_period(request={})
+    res = flexprice.scheduled_tasks.schedule_update_billing_period(request={})
 
     # Handle response
     print(res)
@@ -141,11 +141,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_scheduled_task
 
@@ -155,15 +155,15 @@ Use when you need to load a single scheduled task (e.g. to show details in a UI 
 
 <!-- UsageSnippet language="python" operationID="getScheduledTask" method="get" path="/tasks/scheduled/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.scheduled_tasks.get_scheduled_task(id="<id>")
+    res = flexprice.scheduled_tasks.get_scheduled_task(id="<id>")
 
     # Handle response
     print(res)
@@ -183,11 +183,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## update_scheduled_task
 
@@ -197,15 +197,15 @@ Use when pausing or resuming a scheduled task. Only the enabled field can be cha
 
 <!-- UsageSnippet language="python" operationID="updateScheduledTask" method="put" path="/tasks/scheduled/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.scheduled_tasks.update_scheduled_task(id="<id>", enabled=False)
+    res = flexprice.scheduled_tasks.update_scheduled_task(id="<id>", enabled=False)
 
     # Handle response
     print(res)
@@ -226,11 +226,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## delete_scheduled_task
 
@@ -240,15 +240,15 @@ Use when removing a scheduled task from the active roster. Archives the task and
 
 <!-- UsageSnippet language="python" operationID="deleteScheduledTask" method="delete" path="/tasks/scheduled/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    sdk.scheduled_tasks.delete_scheduled_task(id="<id>")
+    flexprice.scheduled_tasks.delete_scheduled_task(id="<id>")
 
     # Use the SDK ...
 
@@ -263,11 +263,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## trigger_scheduled_task_run
 
@@ -277,15 +277,15 @@ Use when you need to run a scheduled export immediately (e.g. on-demand report o
 
 <!-- UsageSnippet language="python" operationID="triggerScheduledTaskRun" method="post" path="/tasks/scheduled/{id}/run" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.scheduled_tasks.trigger_scheduled_task_run(id="<id>")
+    res = flexprice.scheduled_tasks.trigger_scheduled_task_run(id="<id>")
 
     # Handle response
     print(res)
@@ -307,8 +307,8 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |

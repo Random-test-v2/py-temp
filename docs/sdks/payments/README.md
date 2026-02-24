@@ -19,15 +19,15 @@ Use when listing or searching payments (e.g. reconciliation UI or customer payme
 
 <!-- UsageSnippet language="python" operationID="listPayments" method="get" path="/payments" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.payments.list_payments()
+    res = flexprice.payments.list_payments()
 
     # Handle response
     print(res)
@@ -63,11 +63,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## create_payment
 
@@ -77,15 +77,15 @@ Use when recording a payment against an invoice (e.g. after receiving funds via 
 
 <!-- UsageSnippet language="python" operationID="createPayment" method="post" path="/payments" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.payments.create_payment(amount="883.46", currency="CFP Franc", destination_id="<id>", destination_type="INVOICE", payment_method_type="OFFLINE", process_payment=True, save_card_and_make_default=False)
+    res = flexprice.payments.create_payment(amount="883.46", currency="CFP Franc", destination_id="<id>", destination_type="INVOICE", payment_method_type="OFFLINE", process_payment=True, save_card_and_make_default=False)
 
     # Handle response
     print(res)
@@ -117,11 +117,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_payment
 
@@ -131,15 +131,15 @@ Use when you need to load a single payment (e.g. for a receipt view or reconcili
 
 <!-- UsageSnippet language="python" operationID="getPayment" method="get" path="/payments/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.payments.get_payment(id="<id>")
+    res = flexprice.payments.get_payment(id="<id>")
 
     # Handle response
     print(res)
@@ -159,11 +159,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## update_payment
 
@@ -173,15 +173,15 @@ Use when updating payment status or metadata (e.g. after reconciliation or addin
 
 <!-- UsageSnippet language="python" operationID="updatePayment" method="put" path="/payments/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.payments.update_payment(id="<id>")
+    res = flexprice.payments.update_payment(id="<id>")
 
     # Handle response
     print(res)
@@ -209,11 +209,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## delete_payment
 
@@ -223,15 +223,15 @@ Use when removing or voiding a payment record (e.g. correcting erroneous entries
 
 <!-- UsageSnippet language="python" operationID="deletePayment" method="delete" path="/payments/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.payments.delete_payment(id="<id>")
+    res = flexprice.payments.delete_payment(id="<id>")
 
     # Handle response
     print(res)
@@ -251,11 +251,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## process_payment
 
@@ -265,15 +265,15 @@ Use when you need to charge or process a payment (e.g. trigger the payment provi
 
 <!-- UsageSnippet language="python" operationID="processPayment" method="post" path="/payments/{id}/process" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.payments.process_payment(id="<id>")
+    res = flexprice.payments.process_payment(id="<id>")
 
     # Handle response
     print(res)
@@ -293,8 +293,8 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |

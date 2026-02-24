@@ -51,7 +51,7 @@ The SDK can be installed with *uv*, *pip*, or *poetry* package managers.
 *uv* is a fast Python package installer and resolver, designed as a drop-in replacement for pip and pip-tools. It's recommended for its speed and modern Python tooling capabilities.
 
 ```bash
-uv add openapi
+uv add flexprice-py
 ```
 
 ### PIP
@@ -59,7 +59,7 @@ uv add openapi
 *PIP* is the default package installer for Python, enabling easy installation and management of packages from PyPI via the command line.
 
 ```bash
-pip install openapi
+pip install flexprice-py
 ```
 
 ### Poetry
@@ -67,7 +67,7 @@ pip install openapi
 *Poetry* is a modern tool that simplifies dependency management and package publishing by using a single `pyproject.toml` file to handle project metadata and dependencies.
 
 ```bash
-poetry add openapi
+poetry add flexprice-py
 ```
 
 ### Shell and script usage with `uv`
@@ -75,7 +75,7 @@ poetry add openapi
 You can use this SDK in a Python shell with [uv](https://docs.astral.sh/uv/) and the `uvx` command that comes with it like so:
 
 ```shell
-uvx --from openapi python
+uvx --from flexprice-py python
 ```
 
 It's also possible to write a standalone Python script without needing to set up a whole project like so:
@@ -85,13 +85,13 @@ It's also possible to write a standalone Python script without needing to set up
 # /// script
 # requires-python = ">=3.10"
 # dependencies = [
-#     "openapi",
+#     "flexprice-py",
 # ]
 # ///
 
-from openapi import SDK
+from flexprice_py import Flexprice
 
-sdk = SDK(
+sdk = Flexprice(
   # SDK arguments
 )
 
@@ -119,15 +119,15 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 
 ```python
 # Synchronous Example
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
+    res = flexprice.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
 
     # Handle response
     print(res)
@@ -140,16 +140,16 @@ The same SDK client can also be used to make asynchronous requests by importing 
 ```python
 # Asynchronous Example
 import asyncio
-from openapi import SDK
+from flexprice_py import Flexprice
 
 async def main():
 
-    async with SDK(
+    async with Flexprice(
         server_url="https://api.example.com",
         api_key_auth="<YOUR_API_KEY_HERE>",
-    ) as sdk:
+    ) as flexprice:
 
-        res = await sdk.addons.create_addon_async(lookup_key="<value>", name="<value>", type_="multiple_instance")
+        res = await flexprice.addons.create_addon_async(lookup_key="<value>", name="<value>", type_="multiple_instance")
 
         # Handle response
         print(res)
@@ -171,15 +171,15 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `api_key_auth` parameter must be set when initializing the SDK client instance. For example:
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
+    res = flexprice.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
 
     # Handle response
     print(res)
@@ -484,16 +484,16 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
-from openapi import SDK
-from openapi.utils import BackoffStrategy, RetryConfig
+from flexprice_py import Flexprice
+from flexprice_py.utils import BackoffStrategy, RetryConfig
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance",
+    res = flexprice.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance",
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     # Handle response
@@ -503,17 +503,17 @@ with SDK(
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
-from openapi import SDK
-from openapi.utils import BackoffStrategy, RetryConfig
+from flexprice_py import Flexprice
+from flexprice_py.utils import BackoffStrategy, RetryConfig
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
+    res = flexprice.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
 
     # Handle response
     print(res)
@@ -524,7 +524,7 @@ with SDK(
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-[`SDKError`](./src/openapi/errors/sdkerror.py) is the base class for all HTTP error responses. It has the following properties:
+[`FlexpriceError`](./src/flexprice_py/errors/flexpriceerror.py) is the base class for all HTTP error responses. It has the following properties:
 
 | Property           | Type             | Description                                                                             |
 | ------------------ | ---------------- | --------------------------------------------------------------------------------------- |
@@ -537,23 +537,23 @@ with SDK(
 
 ### Example
 ```python
-from openapi import SDK, errors
+from flexprice_py import Flexprice, errors
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
     res = None
     try:
 
-        res = sdk.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
+        res = flexprice.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
 
         # Handle response
         print(res)
 
 
-    except errors.SDKError as e:
+    except errors.FlexpriceError as e:
         # The base class for HTTP error responses
         print(e.message)
         print(e.status_code)
@@ -569,8 +569,8 @@ with SDK(
 
 ### Error Classes
 **Primary errors:**
-* [`SDKError`](./src/openapi/errors/sdkerror.py): The base class for HTTP error responses.
-  * [`ErrorsErrorResponse`](./src/openapi/errors/errorserrorresponse.py): *
+* [`FlexpriceError`](./src/flexprice_py/errors/flexpriceerror.py): The base class for HTTP error responses.
+  * [`ErrorsErrorResponse`](./src/flexprice_py/errors/errorserrorresponse.py): *
 
 <details><summary>Less common errors (5)</summary>
 
@@ -582,8 +582,8 @@ with SDK(
     * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
 
 
-**Inherit from [`SDKError`](./src/openapi/errors/sdkerror.py)**:
-* [`ResponseValidationError`](./src/openapi/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
+**Inherit from [`FlexpriceError`](./src/flexprice_py/errors/flexpriceerror.py)**:
+* [`ResponseValidationError`](./src/flexprice_py/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
 
@@ -599,17 +599,17 @@ This allows you to wrap the client with your own custom logic, such as adding cu
 
 For example, you could specify a header for every request that this sdk makes as follows:
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 import httpx
 
 http_client = httpx.Client(headers={"x-custom-header": "someValue"})
-s = SDK(client=http_client)
+s = Flexprice(client=http_client)
 ```
 
 or you could wrap the client with your own custom logic:
 ```python
-from openapi import SDK
-from openapi.httpclient import AsyncHttpClient
+from flexprice_py import Flexprice
+from flexprice_py.httpclient import AsyncHttpClient
 import httpx
 
 class CustomClient(AsyncHttpClient):
@@ -667,35 +667,35 @@ class CustomClient(AsyncHttpClient):
             extensions=extensions,
         )
 
-s = SDK(async_client=CustomClient(httpx.AsyncClient()))
+s = Flexprice(async_client=CustomClient(httpx.AsyncClient()))
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
 <!-- Start Resource Management [resource-management] -->
 ## Resource Management
 
-The `SDK` class implements the context manager protocol and registers a finalizer function to close the underlying sync and async HTTPX clients it uses under the hood. This will close HTTP connections, release memory and free up other resources held by the SDK. In short-lived Python programs and notebooks that make a few SDK method calls, resource management may not be a concern. However, in longer-lived programs, it is beneficial to create a single SDK instance via a [context manager][context-manager] and reuse it across the application.
+The `Flexprice` class implements the context manager protocol and registers a finalizer function to close the underlying sync and async HTTPX clients it uses under the hood. This will close HTTP connections, release memory and free up other resources held by the SDK. In short-lived Python programs and notebooks that make a few SDK method calls, resource management may not be a concern. However, in longer-lived programs, it is beneficial to create a single SDK instance via a [context manager][context-manager] and reuse it across the application.
 
 [context-manager]: https://docs.python.org/3/reference/datamodel.html#context-managers
 
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 def main():
 
-    with SDK(
+    with Flexprice(
         server_url="https://api.example.com",
         api_key_auth="<YOUR_API_KEY_HERE>",
-    ) as sdk:
+    ) as flexprice:
         # Rest of application here...
 
 
 # Or when using async:
 async def amain():
 
-    async with SDK(
+    async with Flexprice(
         server_url="https://api.example.com",
         api_key_auth="<YOUR_API_KEY_HERE>",
-    ) as sdk:
+    ) as flexprice:
         # Rest of application here...
 ```
 <!-- End Resource Management [resource-management] -->
@@ -707,11 +707,11 @@ You can setup your SDK to emit debug logs for SDK requests and responses.
 
 You can pass your own logger class directly into your SDK.
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
-s = SDK(server_url="https://example.com", debug_logger=logging.getLogger("openapi"))
+s = Flexprice(server_url="https://example.com", debug_logger=logging.getLogger("flexprice_py"))
 ```
 <!-- End Debugging [debug] -->
 

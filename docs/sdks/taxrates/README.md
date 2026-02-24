@@ -18,15 +18,15 @@ Use when listing tax rates (e.g. tax config UI). Returns tax rates with optional
 
 <!-- UsageSnippet language="python" operationID="getTaxRates" method="get" path="/taxes/rates" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.tax_rates.get_tax_rates()
+    res = flexprice.tax_rates.get_tax_rates()
 
     # Handle response
     print(res)
@@ -55,11 +55,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## create_tax_rate
 
@@ -69,15 +69,15 @@ Use when defining a new tax rate (e.g. VAT or sales tax) for use in invoices. At
 
 <!-- UsageSnippet language="python" operationID="createTaxRate" method="post" path="/taxes/rates" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.tax_rates.create_tax_rate(code="<value>", name="<value>")
+    res = flexprice.tax_rates.create_tax_rate(code="<value>", name="<value>")
 
     # Handle response
     print(res)
@@ -104,11 +104,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_tax_rate
 
@@ -118,15 +118,15 @@ Use when you need to load a single tax rate (e.g. for display or when creating a
 
 <!-- UsageSnippet language="python" operationID="getTaxRate" method="get" path="/taxes/rates/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.tax_rates.get_tax_rate(id="<id>")
+    res = flexprice.tax_rates.get_tax_rate(id="<id>")
 
     # Handle response
     print(res)
@@ -146,11 +146,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## update_tax_rate
 
@@ -160,15 +160,15 @@ Use when changing a tax rate (e.g. rate value or name). Request body contains th
 
 <!-- UsageSnippet language="python" operationID="updateTaxRate" method="put" path="/taxes/rates/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.tax_rates.update_tax_rate(id="<id>")
+    res = flexprice.tax_rates.update_tax_rate(id="<id>")
 
     # Handle response
     print(res)
@@ -193,11 +193,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## delete_tax_rate
 
@@ -207,15 +207,15 @@ Use when retiring a tax rate (e.g. no longer applicable). Fails if still referen
 
 <!-- UsageSnippet language="python" operationID="deleteTaxRate" method="delete" path="/taxes/rates/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    sdk.tax_rates.delete_tax_rate(id="<id>")
+    flexprice.tax_rates.delete_tax_rate(id="<id>")
 
     # Use the SDK ...
 
@@ -230,8 +230,8 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |

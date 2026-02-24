@@ -15,15 +15,15 @@ Use when building role pickers or permission UIs. Returns all roles with permiss
 
 <!-- UsageSnippet language="python" operationID="listRbacRoles" method="get" path="/rbac/roles" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.rbac.list_rbac_roles()
+    res = flexprice.rbac.list_rbac_roles()
 
     # Handle response
     print(res)
@@ -42,9 +42,9 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_rbac_role
 
@@ -54,15 +54,15 @@ Use when you need to show or edit a single role (e.g. role detail page). Include
 
 <!-- UsageSnippet language="python" operationID="getRbacRole" method="get" path="/rbac/roles/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.rbac.get_rbac_role(id="<id>")
+    res = flexprice.rbac.get_rbac_role(id="<id>")
 
     # Handle response
     print(res)
@@ -82,6 +82,6 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |

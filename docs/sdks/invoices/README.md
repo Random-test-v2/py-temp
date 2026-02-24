@@ -26,15 +26,15 @@ Use when showing a customer's invoice overview (e.g. billing portal or balance s
 
 <!-- UsageSnippet language="python" operationID="getCustomerInvoiceSummary" method="get" path="/customers/{id}/invoices/summary" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.get_customer_invoice_summary(id="<id>")
+    res = flexprice.invoices.get_customer_invoice_summary(id="<id>")
 
     # Handle response
     print(res)
@@ -54,11 +54,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## create_invoice
 
@@ -68,15 +68,15 @@ Use when creating a manual or one-off invoice (e.g. custom charge or non-recurri
 
 <!-- UsageSnippet language="python" operationID="createInvoice" method="post" path="/invoices" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.create_invoice(amount_due="<value>", currency="Surinam Dollar", customer_id="<id>", subtotal="<value>", total="<value>")
+    res = flexprice.invoices.create_invoice(amount_due="<value>", currency="Surinam Dollar", customer_id="<id>", subtotal="<value>", total="<value>")
 
     # Handle response
     print(res)
@@ -123,11 +123,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_invoice_preview
 
@@ -137,15 +137,15 @@ Use when showing a customer what they will be charged (e.g. preview before check
 
 <!-- UsageSnippet language="python" operationID="getInvoicePreview" method="post" path="/invoices/preview" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.get_invoice_preview(subscription_id="<id>")
+    res = flexprice.invoices.get_invoice_preview(subscription_id="<id>")
 
     # Handle response
     print(res)
@@ -167,11 +167,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## query_invoice
 
@@ -181,15 +181,15 @@ Use when listing or searching invoices (e.g. admin view or customer history). Re
 
 <!-- UsageSnippet language="python" operationID="queryInvoice" method="post" path="/invoices/search" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.query_invoice()
+    res = flexprice.invoices.query_invoice()
 
     # Handle response
     print(res)
@@ -231,11 +231,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_invoice
 
@@ -245,15 +245,15 @@ Use when loading an invoice for display or editing (e.g. portal or reconciliatio
 
 <!-- UsageSnippet language="python" operationID="getInvoice" method="get" path="/invoices/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.get_invoice(id="<id>")
+    res = flexprice.invoices.get_invoice(id="<id>")
 
     # Handle response
     print(res)
@@ -275,11 +275,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 404                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 404                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## update_invoice
 
@@ -289,15 +289,15 @@ Use when updating invoice metadata or due date (e.g. PDF URL, net terms). For pa
 
 <!-- UsageSnippet language="python" operationID="updateInvoice" method="put" path="/invoices/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.update_invoice(id="<id>")
+    res = flexprice.invoices.update_invoice(id="<id>")
 
     # Handle response
     print(res)
@@ -320,11 +320,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## trigger_invoice_comms_webhook
 
@@ -334,15 +334,15 @@ Use when sending an invoice to the customer (e.g. trigger email or Slack). Paylo
 
 <!-- UsageSnippet language="python" operationID="triggerInvoiceCommsWebhook" method="post" path="/invoices/{id}/comms/trigger" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.trigger_invoice_comms_webhook(id="<id>")
+    res = flexprice.invoices.trigger_invoice_comms_webhook(id="<id>")
 
     # Handle response
     print(res)
@@ -362,11 +362,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## finalize_invoice
 
@@ -376,15 +376,15 @@ Use when locking an invoice for payment (e.g. after review). Once finalized, lin
 
 <!-- UsageSnippet language="python" operationID="finalizeInvoice" method="post" path="/invoices/{id}/finalize" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.finalize_invoice(id="<id>")
+    res = flexprice.invoices.finalize_invoice(id="<id>")
 
     # Handle response
     print(res)
@@ -404,11 +404,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## update_invoice_payment_status
 
@@ -418,15 +418,15 @@ Use when reconciling payment status from an external gateway or manual entry (e.
 
 <!-- UsageSnippet language="python" operationID="updateInvoicePaymentStatus" method="put" path="/invoices/{id}/payment" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.update_invoice_payment_status(id="<id>", payment_status="INITIATED")
+    res = flexprice.invoices.update_invoice_payment_status(id="<id>", payment_status="INITIATED")
 
     # Handle response
     print(res)
@@ -448,11 +448,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## attempt_invoice_payment
 
@@ -462,15 +462,15 @@ Use when paying an invoice with the customer's wallet balance (e.g. prepaid cred
 
 <!-- UsageSnippet language="python" operationID="attemptInvoicePayment" method="post" path="/invoices/{id}/payment/attempt" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.attempt_invoice_payment(id="<id>")
+    res = flexprice.invoices.attempt_invoice_payment(id="<id>")
 
     # Handle response
     print(res)
@@ -490,11 +490,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_invoice_pdf
 
@@ -504,15 +504,15 @@ Use when delivering an invoice PDF to the customer (e.g. email attachment or dow
 
 <!-- UsageSnippet language="python" operationID="getInvoicePdf" method="get" path="/invoices/{id}/pdf" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.get_invoice_pdf(id="<id>")
+    res = flexprice.invoices.get_invoice_pdf(id="<id>")
 
     # Handle response
     print(res)
@@ -533,9 +533,9 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## recalculate_invoice
 
@@ -545,15 +545,15 @@ Use when subscription or usage data changed and you need to refresh a draft invo
 
 <!-- UsageSnippet language="python" operationID="recalculateInvoice" method="post" path="/invoices/{id}/recalculate" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.recalculate_invoice(id="<id>")
+    res = flexprice.invoices.recalculate_invoice(id="<id>")
 
     # Handle response
     print(res)
@@ -574,11 +574,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## void_invoice
 
@@ -588,15 +588,15 @@ Use when cancelling an invoice (e.g. order cancelled or duplicate). Only unpaid 
 
 <!-- UsageSnippet language="python" operationID="voidInvoice" method="post" path="/invoices/{id}/void" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.invoices.void_invoice(id="<id>")
+    res = flexprice.invoices.void_invoice(id="<id>")
 
     # Handle response
     print(res)
@@ -616,8 +616,8 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |

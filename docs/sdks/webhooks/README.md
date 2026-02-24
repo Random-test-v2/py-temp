@@ -20,15 +20,15 @@ Use as the Chargebee webhook endpoint URL. Receives payment and subscription eve
 
 <!-- UsageSnippet language="python" operationID="handleChargebeeWebhook" method="post" path="/webhooks/chargebee/{tenant_id}/{environment_id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.webhooks.handle_chargebee_webhook(tenant_id="<id>", environment_id="<id>")
+    res = flexprice.webhooks.handle_chargebee_webhook(tenant_id="<id>", environment_id="<id>")
 
     # Handle response
     print(res)
@@ -49,9 +49,9 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## handle_hubspot_webhook
 
@@ -61,15 +61,15 @@ Use as the HubSpot webhook endpoint URL. Receives deal and customer events (e.g.
 
 <!-- UsageSnippet language="python" operationID="handleHubspotWebhook" method="post" path="/webhooks/hubspot/{tenant_id}/{environment_id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.webhooks.handle_hubspot_webhook(tenant_id="<id>", environment_id="<id>", x_hub_spot_signature_v3="<value>")
+    res = flexprice.webhooks.handle_hubspot_webhook(tenant_id="<id>", environment_id="<id>", x_hub_spot_signature_v3="<value>")
 
     # Handle response
     print(res)
@@ -91,9 +91,9 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## handle_moyasar_webhook
 
@@ -103,15 +103,15 @@ Use as the Moyasar webhook endpoint URL. Receives payment events from Moyasar to
 
 <!-- UsageSnippet language="python" operationID="handleMoyasarWebhook" method="post" path="/webhooks/moyasar/{tenant_id}/{environment_id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.webhooks.handle_moyasar_webhook(tenant_id="<id>", environment_id="<id>")
+    res = flexprice.webhooks.handle_moyasar_webhook(tenant_id="<id>", environment_id="<id>")
 
     # Handle response
     print(res)
@@ -133,9 +133,9 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## handle_nomod_webhook
 
@@ -145,15 +145,15 @@ Use as the Nomod webhook endpoint URL. Receives payment and invoice events from 
 
 <!-- UsageSnippet language="python" operationID="handleNomodWebhook" method="post" path="/webhooks/nomod/{tenant_id}/{environment_id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.webhooks.handle_nomod_webhook(tenant_id="<id>", environment_id="<id>")
+    res = flexprice.webhooks.handle_nomod_webhook(tenant_id="<id>", environment_id="<id>")
 
     # Handle response
     print(res)
@@ -175,9 +175,9 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## handle_quickbooks_webhook
 
@@ -187,15 +187,15 @@ Use as the QuickBooks webhook endpoint URL. Receives payment events from QuickBo
 
 <!-- UsageSnippet language="python" operationID="handleQuickbooksWebhook" method="post" path="/webhooks/quickbooks/{tenant_id}/{environment_id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.webhooks.handle_quickbooks_webhook(tenant_id="<id>", environment_id="<id>")
+    res = flexprice.webhooks.handle_quickbooks_webhook(tenant_id="<id>", environment_id="<id>")
 
     # Handle response
     print(res)
@@ -217,9 +217,9 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## handle_razorpay_webhook
 
@@ -229,15 +229,15 @@ Use as the Razorpay webhook endpoint URL. Receives payment capture and failure e
 
 <!-- UsageSnippet language="python" operationID="handleRazorpayWebhook" method="post" path="/webhooks/razorpay/{tenant_id}/{environment_id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.webhooks.handle_razorpay_webhook(tenant_id="<id>", environment_id="<id>", x_razorpay_signature="<value>")
+    res = flexprice.webhooks.handle_razorpay_webhook(tenant_id="<id>", environment_id="<id>", x_razorpay_signature="<value>")
 
     # Handle response
     print(res)
@@ -259,9 +259,9 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## handle_stripe_webhook
 
@@ -271,15 +271,15 @@ Use as the Stripe webhook endpoint URL. Receives payment and customer events fro
 
 <!-- UsageSnippet language="python" operationID="handleStripeWebhook" method="post" path="/webhooks/stripe/{tenant_id}/{environment_id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.webhooks.handle_stripe_webhook(tenant_id="<id>", environment_id="<id>", stripe_signature="<value>")
+    res = flexprice.webhooks.handle_stripe_webhook(tenant_id="<id>", environment_id="<id>", stripe_signature="<value>")
 
     # Handle response
     print(res)
@@ -301,6 +301,6 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |

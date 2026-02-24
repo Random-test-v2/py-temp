@@ -21,15 +21,15 @@ Use when sending a single usage event from your app (e.g. one API call or one GB
 
 <!-- UsageSnippet language="python" operationID="ingestEvent" method="post" path="/events" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.events.ingest_event(event_name="api_request", external_customer_id="customer456", customer_id="customer456", event_id="event123", properties={
+    res = flexprice.events.ingest_event(event_name="api_request", external_customer_id="customer456", customer_id="customer456", event_id="event123", properties={
         ""response_status"": "200}",
         "{"request_size"": "100",
     }, source="api", timestamp="2024-03-20T15:04:05Z")
@@ -58,11 +58,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_usage_analytics
 
@@ -72,15 +72,15 @@ Use when building analytics views (e.g. usage by feature or customer over time).
 
 <!-- UsageSnippet language="python" operationID="getUsageAnalytics" method="post" path="/events/analytics" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.events.get_usage_analytics(external_customer_id="<id>")
+    res = flexprice.events.get_usage_analytics(external_customer_id="<id>")
 
     # Handle response
     print(res)
@@ -108,11 +108,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## ingest_events_bulk
 
@@ -122,15 +122,15 @@ Use when batching usage events (e.g. backfill or high-volume ingestion). More ef
 
 <!-- UsageSnippet language="python" operationID="ingestEventsBulk" method="post" path="/events/bulk" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.events.ingest_events_bulk(events=[])
+    res = flexprice.events.ingest_events_bulk(events=[])
 
     # Handle response
     print(res)
@@ -150,11 +150,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_huggingface_inference_data
 
@@ -164,15 +164,15 @@ Use when fetching Hugging Face inference usage or billing data (e.g. for HF-spec
 
 <!-- UsageSnippet language="python" operationID="getHuggingfaceInferenceData" method="post" path="/events/huggingface-inference" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.events.get_huggingface_inference_data()
+    res = flexprice.events.get_huggingface_inference_data()
 
     # Handle response
     print(res)
@@ -191,10 +191,10 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## list_raw_events
 
@@ -204,15 +204,15 @@ Use when debugging ingestion or exporting raw event data (e.g. support or audit)
 
 <!-- UsageSnippet language="python" operationID="listRawEvents" method="post" path="/events/query" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.events.list_raw_events(end_time="2024-12-09T00:00:00Z", order="desc", sort="timestamp", start_time="2024-11-09T00:00:00Z")
+    res = flexprice.events.list_raw_events(end_time="2024-12-09T00:00:00Z", order="desc", sort="timestamp", start_time="2024-11-09T00:00:00Z")
 
     # Handle response
     print(res)
@@ -244,11 +244,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_usage_statistics
 
@@ -258,15 +258,15 @@ Use when building usage reports or dashboards across events. Supports filters an
 
 <!-- UsageSnippet language="python" operationID="getUsageStatistics" method="post" path="/events/usage" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.events.get_usage_statistics(aggregation_type="COUNT_UNIQUE", event_name="api_request", billing_anchor="2024-03-05T14:30:45.123456789Z", customer_id="customer456", end_time="2024-03-20T00:00:00Z", external_customer_id="customer456", property_name="request_size", start_time="2024-03-13T00:00:00Z")
+    res = flexprice.events.get_usage_statistics(aggregation_type="COUNT_UNIQUE", event_name="api_request", billing_anchor="2024-03-05T14:30:45.123456789Z", customer_id="customer456", end_time="2024-03-20T00:00:00Z", external_customer_id="customer456", property_name="request_size", start_time="2024-03-13T00:00:00Z")
 
     # Handle response
     print(res)
@@ -298,11 +298,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_usage_by_meter
 
@@ -312,15 +312,15 @@ Use when showing usage for a specific meter (e.g. dashboard or overage check). S
 
 <!-- UsageSnippet language="python" operationID="getUsageByMeter" method="post" path="/events/usage/meter" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.events.get_usage_by_meter(meter_id="123", billing_anchor="2024-03-05T14:30:45Z", customer_id="customer456", end_time="2024-12-09T00:00:00Z", external_customer_id="user_5", start_time="2024-11-09T00:00:00Z")
+    res = flexprice.events.get_usage_by_meter(meter_id="123", billing_anchor="2024-03-05T14:30:45Z", customer_id="customer456", end_time="2024-12-09T00:00:00Z", external_customer_id="user_5", start_time="2024-11-09T00:00:00Z")
 
     # Handle response
     print(res)
@@ -348,11 +348,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_event
 
@@ -362,15 +362,15 @@ Use when debugging a specific event (e.g. why it failed or how it was aggregated
 
 <!-- UsageSnippet language="python" operationID="getEvent" method="get" path="/events/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.events.get_event(id="<id>")
+    res = flexprice.events.get_event(id="<id>")
 
     # Handle response
     print(res)
@@ -390,8 +390,8 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 404                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 404                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |

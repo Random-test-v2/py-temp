@@ -38,15 +38,15 @@ Use when onboarding a customer to a plan or starting a new subscription. Ideal f
 
 <!-- UsageSnippet language="python" operationID="createSubscription" method="post" path="/subscriptions" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.create_subscription(billing_cadence="ONETIME", billing_period="DAILY", currency="New Leu", plan_id="<id>")
+    res = flexprice.subscriptions.create_subscription(billing_cadence="ONETIME", billing_period="DAILY", currency="New Leu", plan_id="<id>")
 
     # Handle response
     print(res)
@@ -102,11 +102,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## add_subscription_addon
 
@@ -116,15 +116,15 @@ Use when adding an optional product or add-on to an existing subscription (e.g. 
 
 <!-- UsageSnippet language="python" operationID="addSubscriptionAddon" method="post" path="/subscriptions/addon" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.add_subscription_addon(addon_id="<id>", subscription_id="<id>")
+    res = flexprice.subscriptions.add_subscription_addon(addon_id="<id>", subscription_id="<id>")
 
     # Handle response
     print(res)
@@ -148,11 +148,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## remove_subscription_addon
 
@@ -162,15 +162,15 @@ Use when removing an add-on from a subscription (e.g. downgrade or opt-out).
 
 <!-- UsageSnippet language="python" operationID="removeSubscriptionAddon" method="delete" path="/subscriptions/addon" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.remove_subscription_addon(addon_association_id="<id>")
+    res = flexprice.subscriptions.remove_subscription_addon(addon_association_id="<id>")
 
     # Handle response
     print(res)
@@ -191,11 +191,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## update_subscription_line_item
 
@@ -205,15 +205,15 @@ Use when changing a subscription line item (e.g. quantity or price). Implemented
 
 <!-- UsageSnippet language="python" operationID="updateSubscriptionLineItem" method="put" path="/subscriptions/lineitems/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.update_subscription_line_item(id="<id>")
+    res = flexprice.subscriptions.update_subscription_line_item(id="<id>")
 
     # Handle response
     print(res)
@@ -247,11 +247,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## delete_subscription_line_item
 
@@ -261,15 +261,15 @@ Use when removing a charge or seat from a subscription (e.g. downgrade). Line it
 
 <!-- UsageSnippet language="python" operationID="deleteSubscriptionLineItem" method="delete" path="/subscriptions/lineitems/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.delete_subscription_line_item(id="<id>")
+    res = flexprice.subscriptions.delete_subscription_line_item(id="<id>")
 
     # Handle response
     print(res)
@@ -290,11 +290,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## query_subscription
 
@@ -304,15 +304,15 @@ Use when listing or searching subscriptions (e.g. admin view or customer subscri
 
 <!-- UsageSnippet language="python" operationID="querySubscription" method="post" path="/subscriptions/search" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.query_subscription()
+    res = flexprice.subscriptions.query_subscription()
 
     # Handle response
     print(res)
@@ -351,11 +351,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_subscription_usage
 
@@ -365,15 +365,15 @@ Use when showing usage for a subscription (e.g. in a portal or for overage check
 
 <!-- UsageSnippet language="python" operationID="getSubscriptionUsage" method="post" path="/subscriptions/usage" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.get_subscription_usage(subscription_id="123", end_time="2024-03-20T00:00:00Z", lifetime_usage=False, start_time="2024-03-13T00:00:00Z")
+    res = flexprice.subscriptions.get_subscription_usage(subscription_id="123", end_time="2024-03-20T00:00:00Z", lifetime_usage=False, start_time="2024-03-13T00:00:00Z")
 
     # Handle response
     print(res)
@@ -396,11 +396,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_subscription
 
@@ -410,15 +410,15 @@ Use when you need to load a single subscription (e.g. for a billing portal or to
 
 <!-- UsageSnippet language="python" operationID="getSubscription" method="get" path="/subscriptions/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.get_subscription(id="<id>")
+    res = flexprice.subscriptions.get_subscription(id="<id>")
 
     # Handle response
     print(res)
@@ -438,11 +438,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## update_subscription
 
@@ -452,15 +452,15 @@ Use when changing subscription details (e.g. quantity, billing anchor, or parent
 
 <!-- UsageSnippet language="python" operationID="updateSubscription" method="put" path="/subscriptions/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.update_subscription(id="<id>")
+    res = flexprice.subscriptions.update_subscription(id="<id>")
 
     # Handle response
     print(res)
@@ -484,11 +484,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## activate_subscription
 
@@ -498,15 +498,15 @@ Use when turning a draft subscription live (e.g. after collecting payment or com
 
 <!-- UsageSnippet language="python" operationID="activateSubscription" method="post" path="/subscriptions/{id}/activate" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.activate_subscription(id="<id>", start_date="<value>")
+    res = flexprice.subscriptions.activate_subscription(id="<id>", start_date="<value>")
 
     # Handle response
     print(res)
@@ -527,11 +527,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_subscription_addon_associations
 
@@ -541,15 +541,15 @@ Use when listing which add-ons are currently attached to a subscription (e.g. fo
 
 <!-- UsageSnippet language="python" operationID="getSubscriptionAddonAssociations" method="get" path="/subscriptions/{id}/addons/associations" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.get_subscription_addon_associations(id="<id>")
+    res = flexprice.subscriptions.get_subscription_addon_associations(id="<id>")
 
     # Handle response
     print(res)
@@ -569,11 +569,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## cancel_subscription
 
@@ -583,15 +583,15 @@ Use when a customer churns or downgrades. Supports immediate or end-of-period ca
 
 <!-- UsageSnippet language="python" operationID="cancelSubscription" method="post" path="/subscriptions/{id}/cancel" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.cancel_subscription(id="<id>", cancellation_type="immediate")
+    res = flexprice.subscriptions.cancel_subscription(id="<id>", cancellation_type="immediate")
 
     # Handle response
     print(res)
@@ -615,11 +615,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## execute_subscription_change
 
@@ -629,15 +629,15 @@ Use when applying a plan change (e.g. upgrade or downgrade). Executes proration 
 
 <!-- UsageSnippet language="python" operationID="executeSubscriptionChange" method="post" path="/subscriptions/{id}/change/execute" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.execute_subscription_change(id="<id>", billing_cadence="RECURRING", billing_cycle="anniversary", billing_period="QUARTERLY", proration_behavior="create_prorations", target_plan_id="<id>")
+    res = flexprice.subscriptions.execute_subscription_change(id="<id>", billing_cadence="RECURRING", billing_cycle="anniversary", billing_period="QUARTERLY", proration_behavior="create_prorations", target_plan_id="<id>")
 
     # Handle response
     print(res)
@@ -665,11 +665,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## preview_subscription_change
 
@@ -679,15 +679,15 @@ Use when showing a customer the cost of a plan change before they confirm (e.g. 
 
 <!-- UsageSnippet language="python" operationID="previewSubscriptionChange" method="post" path="/subscriptions/{id}/change/preview" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.preview_subscription_change(id="<id>", billing_cadence="RECURRING", billing_cycle="calendar", billing_period="HALF_YEARLY", proration_behavior="create_prorations", target_plan_id="<id>")
+    res = flexprice.subscriptions.preview_subscription_change(id="<id>", billing_cadence="RECURRING", billing_cycle="calendar", billing_period="HALF_YEARLY", proration_behavior="create_prorations", target_plan_id="<id>")
 
     # Handle response
     print(res)
@@ -715,11 +715,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_subscription_entitlements
 
@@ -729,15 +729,15 @@ Use when checking what features or limits a subscription has (e.g. entitlement c
 
 <!-- UsageSnippet language="python" operationID="getSubscriptionEntitlements" method="get" path="/subscriptions/{id}/entitlements" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.get_subscription_entitlements(id="<id>")
+    res = flexprice.subscriptions.get_subscription_entitlements(id="<id>")
 
     # Handle response
     print(res)
@@ -758,11 +758,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_subscription_upcoming_grants
 
@@ -772,15 +772,15 @@ Use when showing upcoming or pending credits for a subscription (e.g. in a porta
 
 <!-- UsageSnippet language="python" operationID="getSubscriptionUpcomingGrants" method="get" path="/subscriptions/{id}/grants/upcoming" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.get_subscription_upcoming_grants(id="<id>")
+    res = flexprice.subscriptions.get_subscription_upcoming_grants(id="<id>")
 
     # Handle response
     print(res)
@@ -800,11 +800,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## create_subscription_line_item
 
@@ -814,15 +814,15 @@ Use when adding a new charge or seat to a subscription (e.g. extra seat or one-t
 
 <!-- UsageSnippet language="python" operationID="createSubscriptionLineItem" method="post" path="/subscriptions/{id}/lineitems" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.create_subscription_line_item(id="<id>")
+    res = flexprice.subscriptions.create_subscription_line_item(id="<id>")
 
     # Handle response
     print(res)
@@ -857,11 +857,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## pause_subscription
 
@@ -871,15 +871,15 @@ Use when temporarily stopping a subscription (e.g. customer hold or seasonal pau
 
 <!-- UsageSnippet language="python" operationID="pauseSubscription" method="post" path="/subscriptions/{id}/pause" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.pause_subscription(id="<id>", pause_mode="scheduled")
+    res = flexprice.subscriptions.pause_subscription(id="<id>", pause_mode="scheduled")
 
     # Handle response
     print(res)
@@ -906,11 +906,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## list_subscription_pauses
 
@@ -920,15 +920,15 @@ Use when showing pause history for a subscription (e.g. support or audit). Retur
 
 <!-- UsageSnippet language="python" operationID="listSubscriptionPauses" method="get" path="/subscriptions/{id}/pauses" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.list_subscription_pauses(id="<id>")
+    res = flexprice.subscriptions.list_subscription_pauses(id="<id>")
 
     # Handle response
     print(res)
@@ -948,11 +948,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## resume_subscription
 
@@ -962,15 +962,15 @@ Use when reactivating a paused subscription (e.g. end of hold). Billing and acce
 
 <!-- UsageSnippet language="python" operationID="resumeSubscription" method="post" path="/subscriptions/{id}/resume" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.resume_subscription(id="<id>", resume_mode="auto")
+    res = flexprice.subscriptions.resume_subscription(id="<id>", resume_mode="auto")
 
     # Handle response
     print(res)
@@ -993,11 +993,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_subscription_v2
 
@@ -1007,15 +1007,15 @@ Use when you need a subscription with related data (line items, prices, plan). S
 
 <!-- UsageSnippet language="python" operationID="getSubscriptionV2" method="get" path="/subscriptions/{id}/v2" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.get_subscription_v2(id="<id>")
+    res = flexprice.subscriptions.get_subscription_v2(id="<id>")
 
     # Handle response
     print(res)
@@ -1036,11 +1036,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## list_all_subscription_schedules
 
@@ -1050,15 +1050,15 @@ Use when listing or searching scheduled changes across subscriptions (e.g. admin
 
 <!-- UsageSnippet language="python" operationID="listAllSubscriptionSchedules" method="get" path="/v1/subscription-schedules" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.list_all_subscription_schedules()
+    res = flexprice.subscriptions.list_all_subscription_schedules()
 
     # Handle response
     print(res)
@@ -1081,9 +1081,9 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_subscription_schedule
 
@@ -1093,15 +1093,15 @@ Use when you need to load a single scheduled change (e.g. to show when a plan ch
 
 <!-- UsageSnippet language="python" operationID="getSubscriptionSchedule" method="get" path="/v1/subscription-schedules/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.get_subscription_schedule(id="<id>")
+    res = flexprice.subscriptions.get_subscription_schedule(id="<id>")
 
     # Handle response
     print(res)
@@ -1121,9 +1121,9 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## cancel_subscription_schedule
 
@@ -1133,15 +1133,15 @@ Use when cancelling a scheduled change (e.g. customer changed mind). Identify by
 
 <!-- UsageSnippet language="python" operationID="cancelSubscriptionSchedule" method="post" path="/v1/subscriptions/schedules/{schedule_id}/cancel" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.cancel_subscription_schedule(schedule_id_param="<value>")
+    res = flexprice.subscriptions.cancel_subscription_schedule(schedule_id_param="<value>")
 
     # Handle response
     print(res)
@@ -1164,9 +1164,9 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## list_subscription_schedules
 
@@ -1176,15 +1176,15 @@ Use when listing scheduled changes for a subscription (e.g. upcoming plan change
 
 <!-- UsageSnippet language="python" operationID="listSubscriptionSchedules" method="get" path="/v1/subscriptions/{subscription_id}/schedules" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.subscriptions.list_subscription_schedules(subscription_id="<id>")
+    res = flexprice.subscriptions.list_subscription_schedules(subscription_id="<id>")
 
     # Handle response
     print(res)
@@ -1204,6 +1204,6 @@ with SDK(
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |

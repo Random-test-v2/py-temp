@@ -15,15 +15,15 @@ Use when linking a FlexPrice entity to an external system (e.g. CRM or payment p
 
 <!-- UsageSnippet language="python" operationID="createEntityIntegrationMapping" method="post" path="/entity-integration-mappings" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.entity_integration_mappings.create_entity_integration_mapping(entity_id="<id>", entity_type="credit_note", provider_entity_id="<id>", provider_type="<value>")
+    res = flexprice.entity_integration_mappings.create_entity_integration_mapping(entity_id="<id>", entity_type="credit_note", provider_entity_id="<id>", provider_type="<value>")
 
     # Handle response
     print(res)
@@ -47,11 +47,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 401, 409              | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 401, 409                | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## delete_entity_integration_mapping
 
@@ -61,15 +61,15 @@ Use when unlinking a FlexPrice entity from an external system or cleaning up sta
 
 <!-- UsageSnippet language="python" operationID="deleteEntityIntegrationMapping" method="delete" path="/entity-integration-mappings/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    sdk.entity_integration_mappings.delete_entity_integration_mapping(id="<id>")
+    flexprice.entity_integration_mappings.delete_entity_integration_mapping(id="<id>")
 
     # Use the SDK ...
 
@@ -84,8 +84,8 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 401, 404              | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 401, 404                | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |

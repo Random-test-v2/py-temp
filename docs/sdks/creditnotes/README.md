@@ -17,15 +17,15 @@ Use when issuing a refund or adjustment (e.g. customer dispute or proration). Li
 
 <!-- UsageSnippet language="python" operationID="createCreditNote" method="post" path="/creditnotes" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.credit_notes.create_credit_note(invoice_id="<id>", reason="FRAUDULENT", process_credit_note=True)
+    res = flexprice.credit_notes.create_credit_note(invoice_id="<id>", reason="FRAUDULENT", process_credit_note=True)
 
     # Handle response
     print(res)
@@ -52,11 +52,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 401, 403, 404         | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 401, 403, 404           | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_credit_note
 
@@ -66,15 +66,15 @@ Use when you need to load a single credit note (e.g. for display or reconciliati
 
 <!-- UsageSnippet language="python" operationID="getCreditNote" method="get" path="/creditnotes/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.credit_notes.get_credit_note(id="<id>")
+    res = flexprice.credit_notes.get_credit_note(id="<id>")
 
     # Handle response
     print(res)
@@ -94,11 +94,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 404                     | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## process_credit_note
 
@@ -108,15 +108,15 @@ Use when locking a draft credit note and applying the credit (e.g. after approva
 
 <!-- UsageSnippet language="python" operationID="processCreditNote" method="post" path="/creditnotes/{id}/finalize" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.credit_notes.process_credit_note(id="<id>")
+    res = flexprice.credit_notes.process_credit_note(id="<id>")
 
     # Handle response
     print(res)
@@ -136,11 +136,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 401, 403, 404         | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 401, 403, 404           | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## void_credit_note
 
@@ -150,15 +150,15 @@ Use when cancelling a draft credit note (e.g. created by mistake). Only draft cr
 
 <!-- UsageSnippet language="python" operationID="voidCreditNote" method="post" path="/creditnotes/{id}/void" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.credit_notes.void_credit_note(id="<id>")
+    res = flexprice.credit_notes.void_credit_note(id="<id>")
 
     # Handle response
     print(res)
@@ -178,8 +178,8 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 401, 403, 404         | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400, 401, 403, 404           | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |

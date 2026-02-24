@@ -20,15 +20,15 @@ Use when adding a new price to a plan or catalog (e.g. per-seat, flat, or metere
 
 <!-- UsageSnippet language="python" operationID="createPrice" method="post" path="/prices" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.prices.create_price(billing_cadence="RECURRING", billing_model="PACKAGE", billing_period="HALF_YEARLY", currency="Serbian Dinar", entity_id="<id>", entity_type="PRICE", invoice_cadence="ARREAR", price_unit_type="CUSTOM", type_="USAGE")
+    res = flexprice.prices.create_price(billing_cadence="RECURRING", billing_model="PACKAGE", billing_period="HALF_YEARLY", currency="Serbian Dinar", entity_id="<id>", entity_type="PRICE", invoice_cadence="ARREAR", price_unit_type="CUSTOM", type_="USAGE")
 
     # Handle response
     print(res)
@@ -73,11 +73,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## create_prices_bulk
 
@@ -87,15 +87,15 @@ Use when creating many prices at once (e.g. importing a catalog or setting up a 
 
 <!-- UsageSnippet language="python" operationID="createPricesBulk" method="post" path="/prices/bulk" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.prices.create_prices_bulk(items=[])
+    res = flexprice.prices.create_prices_bulk(items=[])
 
     # Handle response
     print(res)
@@ -115,11 +115,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_price_by_lookup_key
 
@@ -129,15 +129,15 @@ Use when resolving a price by external id (e.g. from your catalog or CMS). Ideal
 
 <!-- UsageSnippet language="python" operationID="getPriceByLookupKey" method="get" path="/prices/lookup/{lookup_key}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.prices.get_price_by_lookup_key(lookup_key="<value>")
+    res = flexprice.prices.get_price_by_lookup_key(lookup_key="<value>")
 
     # Handle response
     print(res)
@@ -157,11 +157,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## query_price
 
@@ -171,15 +171,15 @@ Use when listing or searching prices (e.g. plan builder or catalog). Returns a p
 
 <!-- UsageSnippet language="python" operationID="queryPrice" method="post" path="/prices/search" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.prices.query_price(allow_expired_prices=False)
+    res = flexprice.prices.query_price(allow_expired_prices=False)
 
     # Handle response
     print(res)
@@ -216,11 +216,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## get_price
 
@@ -230,15 +230,15 @@ Use when you need to load a single price (e.g. for display or editing). Response
 
 <!-- UsageSnippet language="python" operationID="getPrice" method="get" path="/prices/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.prices.get_price(id="<id>")
+    res = flexprice.prices.get_price(id="<id>")
 
     # Handle response
     print(res)
@@ -258,11 +258,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## update_price
 
@@ -272,15 +272,15 @@ Use when changing price configuration (e.g. amount, billing scheme, or metadata)
 
 <!-- UsageSnippet language="python" operationID="updatePrice" method="put" path="/prices/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.prices.update_price(id="<id>")
+    res = flexprice.prices.update_price(id="<id>")
 
     # Handle response
     print(res)
@@ -313,11 +313,11 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
 
 ## delete_price
 
@@ -327,15 +327,15 @@ Use when retiring a price (e.g. end-of-life or replacement). Optional effective 
 
 <!-- UsageSnippet language="python" operationID="deletePrice" method="delete" path="/prices/{id}" -->
 ```python
-from openapi import SDK
+from flexprice_py import Flexprice
 
 
-with SDK(
+with Flexprice(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as sdk:
+) as flexprice:
 
-    res = sdk.prices.delete_price(id="<id>")
+    res = flexprice.prices.delete_price(id="<id>")
 
     # Handle response
     print(res)
@@ -356,8 +356,8 @@ with SDK(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsErrorResponse   | 400                          | application/json             |
+| errors.ErrorsErrorResponse   | 500                          | application/json             |
+| errors.FlexpriceDefaultError | 4XX, 5XX                     | \*/\*                        |
