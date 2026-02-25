@@ -12,6 +12,7 @@ class Wallets(BaseSDK):
     def get_customer_wallets(
         self,
         *,
+        minus: Optional[int] = None,
         expand: Optional[str] = None,
         from_cache: Optional[bool] = False,
         id: Optional[str] = None,
@@ -26,6 +27,7 @@ class Wallets(BaseSDK):
 
         Use when resolving wallets by external customer id or lookup key (e.g. from your app's user id). Supports optional real-time balance and expand.
 
+        :param minus: populated from x-max-live header, not query param
         :param expand:
         :param from_cache:
         :param id:
@@ -47,6 +49,7 @@ class Wallets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetCustomerWalletsRequest(
+            minus=minus,
             expand=expand,
             from_cache=from_cache,
             id=id,
@@ -121,6 +124,7 @@ class Wallets(BaseSDK):
     async def get_customer_wallets_async(
         self,
         *,
+        minus: Optional[int] = None,
         expand: Optional[str] = None,
         from_cache: Optional[bool] = False,
         id: Optional[str] = None,
@@ -135,6 +139,7 @@ class Wallets(BaseSDK):
 
         Use when resolving wallets by external customer id or lookup key (e.g. from your app's user id). Supports optional real-time balance and expand.
 
+        :param minus: populated from x-max-live header, not query param
         :param expand:
         :param from_cache:
         :param id:
@@ -156,6 +161,7 @@ class Wallets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetCustomerWalletsRequest(
+            minus=minus,
             expand=expand,
             from_cache=from_cache,
             id=id,

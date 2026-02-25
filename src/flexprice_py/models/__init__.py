@@ -144,6 +144,7 @@ if TYPE_CHECKING:
         DtoCancelSubscriptionResponse,
         DtoCancelSubscriptionResponseTypedDict,
     )
+    from .dto_cloneplanrequest import DtoClonePlanRequest, DtoClonePlanRequestTypedDict
     from .dto_costanalyticitem import DtoCostAnalyticItem, DtoCostAnalyticItemTypedDict
     from .dto_costpoint import DtoCostPoint, DtoCostPointTypedDict
     from .dto_costsheetresponse import (
@@ -299,10 +300,6 @@ if TYPE_CHECKING:
     from .dto_createtaxraterequest import (
         DtoCreateTaxRateRequest,
         DtoCreateTaxRateRequestTypedDict,
-    )
-    from .dto_createtenantrequest import (
-        DtoCreateTenantRequest,
-        DtoCreateTenantRequestTypedDict,
     )
     from .dto_createuserrequest import (
         DtoCreateUserRequest,
@@ -957,7 +954,7 @@ if TYPE_CHECKING:
         GetTaxRatesStatus,
         Scope,
     )
-    from .gettenantop import GetTenantRequest, GetTenantRequestTypedDict
+    from .gettenantbyidop import GetTenantByIDRequest, GetTenantByIDRequestTypedDict
     from .getwalletbalanceop import (
         GetWalletBalanceRequest,
         GetWalletBalanceRequestTypedDict,
@@ -1079,6 +1076,10 @@ if TYPE_CHECKING:
     from .pausesubscriptionop import (
         PauseSubscriptionRequest,
         PauseSubscriptionRequestTypedDict,
+    )
+    from .post_plans_id_cloneop import (
+        PostPlansIDCloneRequest,
+        PostPlansIDCloneRequestTypedDict,
     )
     from .previewsubscriptionchangeop import (
         PreviewSubscriptionChangeRequest,
@@ -1505,6 +1506,8 @@ __all__ = [
     "DtoCancelSubscriptionRequestTypedDict",
     "DtoCancelSubscriptionResponse",
     "DtoCancelSubscriptionResponseTypedDict",
+    "DtoClonePlanRequest",
+    "DtoClonePlanRequestTypedDict",
     "DtoCostAnalyticItem",
     "DtoCostAnalyticItemTypedDict",
     "DtoCostPoint",
@@ -1589,8 +1592,6 @@ __all__ = [
     "DtoCreateTaxAssociationRequestTypedDict",
     "DtoCreateTaxRateRequest",
     "DtoCreateTaxRateRequestTypedDict",
-    "DtoCreateTenantRequest",
-    "DtoCreateTenantRequestTypedDict",
     "DtoCreateUserRequest",
     "DtoCreateUserRequestTypedDict",
     "DtoCreateWalletRequest",
@@ -2005,8 +2006,8 @@ __all__ = [
     "GetTaxRatesRequest",
     "GetTaxRatesRequestTypedDict",
     "GetTaxRatesStatus",
-    "GetTenantRequest",
-    "GetTenantRequestTypedDict",
+    "GetTenantByIDRequest",
+    "GetTenantByIDRequestTypedDict",
     "GetWalletBalanceRequest",
     "GetWalletBalanceRequestTypedDict",
     "GetWalletRequest",
@@ -2076,6 +2077,8 @@ __all__ = [
     "ModelsTemporalWorkflowResultTypedDict",
     "PauseSubscriptionRequest",
     "PauseSubscriptionRequestTypedDict",
+    "PostPlansIDCloneRequest",
+    "PostPlansIDCloneRequestTypedDict",
     "PreviewSubscriptionChangeRequest",
     "PreviewSubscriptionChangeRequestTypedDict",
     "PriceJSONBTransformQuantity",
@@ -2424,6 +2427,8 @@ _dynamic_imports: dict[str, str] = {
     "DtoCancelSubscriptionRequestTypedDict": ".dto_cancelsubscriptionrequest",
     "DtoCancelSubscriptionResponse": ".dto_cancelsubscriptionresponse",
     "DtoCancelSubscriptionResponseTypedDict": ".dto_cancelsubscriptionresponse",
+    "DtoClonePlanRequest": ".dto_cloneplanrequest",
+    "DtoClonePlanRequestTypedDict": ".dto_cloneplanrequest",
     "DtoCostAnalyticItem": ".dto_costanalyticitem",
     "DtoCostAnalyticItemTypedDict": ".dto_costanalyticitem",
     "DtoCostPoint": ".dto_costpoint",
@@ -2508,8 +2513,6 @@ _dynamic_imports: dict[str, str] = {
     "DtoCreateTaxAssociationRequestTypedDict": ".dto_createtaxassociationrequest",
     "DtoCreateTaxRateRequest": ".dto_createtaxraterequest",
     "DtoCreateTaxRateRequestTypedDict": ".dto_createtaxraterequest",
-    "DtoCreateTenantRequest": ".dto_createtenantrequest",
-    "DtoCreateTenantRequestTypedDict": ".dto_createtenantrequest",
     "DtoCreateUserRequest": ".dto_createuserrequest",
     "DtoCreateUserRequestTypedDict": ".dto_createuserrequest",
     "DtoCreateWalletRequest": ".dto_createwalletrequest",
@@ -2919,8 +2922,8 @@ _dynamic_imports: dict[str, str] = {
     "GetTaxRatesRequestTypedDict": ".gettaxratesop",
     "GetTaxRatesStatus": ".gettaxratesop",
     "Scope": ".gettaxratesop",
-    "GetTenantRequest": ".gettenantop",
-    "GetTenantRequestTypedDict": ".gettenantop",
+    "GetTenantByIDRequest": ".gettenantbyidop",
+    "GetTenantByIDRequestTypedDict": ".gettenantbyidop",
     "GetWalletBalanceRequest": ".getwalletbalanceop",
     "GetWalletBalanceRequestTypedDict": ".getwalletbalanceop",
     "GetWalletRequest": ".getwalletop",
@@ -2996,6 +2999,8 @@ _dynamic_imports: dict[str, str] = {
     "ModelsTemporalWorkflowResultTypedDict": ".models_temporalworkflowresult",
     "PauseSubscriptionRequest": ".pausesubscriptionop",
     "PauseSubscriptionRequestTypedDict": ".pausesubscriptionop",
+    "PostPlansIDCloneRequest": ".post_plans_id_cloneop",
+    "PostPlansIDCloneRequestTypedDict": ".post_plans_id_cloneop",
     "PreviewSubscriptionChangeRequest": ".previewsubscriptionchangeop",
     "PreviewSubscriptionChangeRequestTypedDict": ".previewsubscriptionchangeop",
     "PriceJSONBTransformQuantity": ".price_jsonbtransformquantity",

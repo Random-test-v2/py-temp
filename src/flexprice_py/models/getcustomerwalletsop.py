@@ -3,12 +3,15 @@
 from __future__ import annotations
 from flexprice_py.types import BaseModel, UNSET_SENTINEL
 from flexprice_py.utils import FieldMetadata, QueryParamMetadata
+import pydantic
 from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class GetCustomerWalletsRequestTypedDict(TypedDict):
+    minus: NotRequired[int]
+    r"""populated from x-max-live header, not query param"""
     expand: NotRequired[str]
     from_cache: NotRequired[bool]
     id: NotRequired[str]
@@ -17,6 +20,13 @@ class GetCustomerWalletsRequestTypedDict(TypedDict):
 
 
 class GetCustomerWalletsRequest(BaseModel):
+    minus: Annotated[
+        Optional[int],
+        pydantic.Field(alias="-"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""populated from x-max-live header, not query param"""
+
     expand: Annotated[
         Optional[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -45,7 +55,14 @@ class GetCustomerWalletsRequest(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["expand", "from_cache", "id", "include_real_time_balance", "lookup_key"]
+            [
+                "-",
+                "expand",
+                "from_cache",
+                "id",
+                "include_real_time_balance",
+                "lookup_key",
+            ]
         )
         serialized = handler(self)
         m = {}

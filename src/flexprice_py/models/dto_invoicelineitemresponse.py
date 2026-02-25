@@ -15,7 +15,7 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class DtoInvoiceLineItemResponseTypedDict(TypedDict):
-    amount: NotRequired[float]
+    amount: NotRequired[str]
     commitment_info: NotRequired[TypesCommitmentInfoTypedDict]
     created_at: NotRequired[str]
     created_by: NotRequired[str]
@@ -27,9 +27,9 @@ class DtoInvoiceLineItemResponseTypedDict(TypedDict):
     environment_id: NotRequired[str]
     id: NotRequired[str]
     invoice_id: NotRequired[str]
-    invoice_level_discount: NotRequired[float]
+    invoice_level_discount: NotRequired[str]
     r"""invoice_level_discount is the discount amount in invoice currency applied to all line items on the invoice."""
-    line_item_discount: NotRequired[float]
+    line_item_discount: NotRequired[str]
     r"""line_item_discount is the discount amount in invoice currency applied directly to this line item."""
     metadata: NotRequired[Dict[str, str]]
     meter_display_name: NotRequired[str]
@@ -37,14 +37,14 @@ class DtoInvoiceLineItemResponseTypedDict(TypedDict):
     period_end: NotRequired[str]
     period_start: NotRequired[str]
     plan_display_name: NotRequired[str]
-    prepaid_credits_applied: NotRequired[float]
+    prepaid_credits_applied: NotRequired[str]
     r"""prepaid_credits_applied is the amount in invoice currency reduced from this line item due to prepaid credits application."""
     price_id: NotRequired[str]
     price_type: NotRequired[str]
     price_unit: NotRequired[str]
-    price_unit_amount: NotRequired[float]
+    price_unit_amount: NotRequired[str]
     price_unit_id: NotRequired[str]
-    quantity: NotRequired[float]
+    quantity: NotRequired[str]
     status: NotRequired[TypesStatus]
     subscription_id: NotRequired[str]
     tenant_id: NotRequired[str]
@@ -57,7 +57,7 @@ class DtoInvoiceLineItemResponseTypedDict(TypedDict):
 
 
 class DtoInvoiceLineItemResponse(BaseModel):
-    amount: Optional[float] = None
+    amount: Optional[str] = None
 
     commitment_info: Optional[TypesCommitmentInfo] = None
 
@@ -81,10 +81,10 @@ class DtoInvoiceLineItemResponse(BaseModel):
 
     invoice_id: Optional[str] = None
 
-    invoice_level_discount: Optional[float] = None
+    invoice_level_discount: Optional[str] = None
     r"""invoice_level_discount is the discount amount in invoice currency applied to all line items on the invoice."""
 
-    line_item_discount: Optional[float] = None
+    line_item_discount: Optional[str] = None
     r"""line_item_discount is the discount amount in invoice currency applied directly to this line item."""
 
     metadata: Optional[Dict[str, str]] = None
@@ -99,7 +99,7 @@ class DtoInvoiceLineItemResponse(BaseModel):
 
     plan_display_name: Optional[str] = None
 
-    prepaid_credits_applied: Optional[float] = None
+    prepaid_credits_applied: Optional[str] = None
     r"""prepaid_credits_applied is the amount in invoice currency reduced from this line item due to prepaid credits application."""
 
     price_id: Optional[str] = None
@@ -108,11 +108,11 @@ class DtoInvoiceLineItemResponse(BaseModel):
 
     price_unit: Optional[str] = None
 
-    price_unit_amount: Optional[float] = None
+    price_unit_amount: Optional[str] = None
 
     price_unit_id: Optional[str] = None
 
-    quantity: Optional[float] = None
+    quantity: Optional[str] = None
 
     status: Optional[TypesStatus] = None
 

@@ -1,4 +1,4 @@
-# GetTenantRequest
+# GetTenantByIDRequest
 
 
 ## Fields

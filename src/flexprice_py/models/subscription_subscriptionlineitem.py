@@ -18,11 +18,11 @@ class SubscriptionSubscriptionLineItemTypedDict(TypedDict):
     billing_period: NotRequired[TypesBillingPeriod]
     billing_period_count: NotRequired[int]
     r"""from price at create; default 1"""
-    commitment_amount: NotRequired[float]
+    commitment_amount: NotRequired[str]
     r"""Commitment fields"""
     commitment_duration: NotRequired[TypesBillingPeriod]
-    commitment_overage_factor: NotRequired[float]
-    commitment_quantity: NotRequired[float]
+    commitment_overage_factor: NotRequired[str]
+    commitment_quantity: NotRequired[str]
     commitment_true_up_enabled: NotRequired[bool]
     commitment_type: NotRequired[TypesCommitmentType]
     commitment_windowed: NotRequired[bool]
@@ -63,14 +63,14 @@ class SubscriptionSubscriptionLineItem(BaseModel):
     billing_period_count: Optional[int] = None
     r"""from price at create; default 1"""
 
-    commitment_amount: Optional[float] = None
+    commitment_amount: Optional[str] = None
     r"""Commitment fields"""
 
     commitment_duration: Optional[TypesBillingPeriod] = None
 
-    commitment_overage_factor: Optional[float] = None
+    commitment_overage_factor: Optional[str] = None
 
-    commitment_quantity: Optional[float] = None
+    commitment_quantity: Optional[str] = None
 
     commitment_true_up_enabled: Optional[bool] = None
 

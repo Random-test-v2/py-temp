@@ -31,15 +31,15 @@ if TYPE_CHECKING:
 
 
 class DtoInvoiceResponseTypedDict(TypedDict):
-    adjustment_amount: NotRequired[float]
+    adjustment_amount: NotRequired[str]
     r"""adjustment_amount is the total sum of credit notes of type \"adjustment\".
     These are non-cash reductions applied to the invoice (e.g. goodwill credit, billing correction).
     """
-    amount_due: NotRequired[float]
+    amount_due: NotRequired[str]
     r"""amount_due is the total amount that needs to be paid for this invoice"""
-    amount_paid: NotRequired[float]
+    amount_paid: NotRequired[str]
     r"""amount_paid is the amount that has already been paid towards this invoice"""
-    amount_remaining: NotRequired[float]
+    amount_remaining: NotRequired[str]
     r"""amount_remaining is the outstanding amount still owed on this invoice (calculated as amount_due minus amount_paid)"""
     billing_period: NotRequired[str]
     r"""billing_period describes the billing period this invoice covers (e.g., \"January 2024\", \"Q1 2024\")"""
@@ -87,7 +87,7 @@ class DtoInvoiceResponseTypedDict(TypedDict):
     r"""period_end is the end date of the billing period covered by this invoice"""
     period_start: NotRequired[str]
     r"""period_start is the start date of the billing period covered by this invoice"""
-    refunded_amount: NotRequired[float]
+    refunded_amount: NotRequired[str]
     r"""refunded_amount is the total sum of credit notes of type \"refund\".
     These are actual refunds issued to the customer.
     """
@@ -95,18 +95,18 @@ class DtoInvoiceResponseTypedDict(TypedDict):
     subscription: NotRequired["DtoSubscriptionResponseTypedDict"]
     subscription_id: NotRequired[str]
     r"""subscription_id is the ID of the subscription this invoice is associated with (only present for subscription-based invoices)"""
-    subtotal: NotRequired[float]
+    subtotal: NotRequired[str]
     r"""subtotal is the sum of all line items before any taxes, discounts, or additional fees"""
     taxes: NotRequired[List[DtoTaxAppliedResponseTypedDict]]
     r"""tax_applied_records contains the tax applied records associated with this invoice"""
     tenant_id: NotRequired[str]
-    total: NotRequired[float]
+    total: NotRequired[str]
     r"""total is the final amount including taxes, fees, and discounts"""
-    total_discount: NotRequired[float]
+    total_discount: NotRequired[str]
     r"""total_discount is the sum of all coupon discounts applied to the invoice"""
-    total_prepaid_credits_applied: NotRequired[float]
+    total_prepaid_credits_applied: NotRequired[str]
     r"""total_prepaid_credits_applied is the total amount of prepaid credits applied to this invoice."""
-    total_tax: NotRequired[float]
+    total_tax: NotRequired[str]
     r"""total_tax is the sum of all taxes combined at the invoice level."""
     updated_at: NotRequired[str]
     updated_by: NotRequired[str]
@@ -117,18 +117,18 @@ class DtoInvoiceResponseTypedDict(TypedDict):
 
 
 class DtoInvoiceResponse(BaseModel):
-    adjustment_amount: Optional[float] = None
+    adjustment_amount: Optional[str] = None
     r"""adjustment_amount is the total sum of credit notes of type \"adjustment\".
     These are non-cash reductions applied to the invoice (e.g. goodwill credit, billing correction).
     """
 
-    amount_due: Optional[float] = None
+    amount_due: Optional[str] = None
     r"""amount_due is the total amount that needs to be paid for this invoice"""
 
-    amount_paid: Optional[float] = None
+    amount_paid: Optional[str] = None
     r"""amount_paid is the amount that has already been paid towards this invoice"""
 
-    amount_remaining: Optional[float] = None
+    amount_remaining: Optional[str] = None
     r"""amount_remaining is the outstanding amount still owed on this invoice (calculated as amount_due minus amount_paid)"""
 
     billing_period: Optional[str] = None
@@ -203,7 +203,7 @@ class DtoInvoiceResponse(BaseModel):
     period_start: Optional[str] = None
     r"""period_start is the start date of the billing period covered by this invoice"""
 
-    refunded_amount: Optional[float] = None
+    refunded_amount: Optional[str] = None
     r"""refunded_amount is the total sum of credit notes of type \"refund\".
     These are actual refunds issued to the customer.
     """
@@ -215,7 +215,7 @@ class DtoInvoiceResponse(BaseModel):
     subscription_id: Optional[str] = None
     r"""subscription_id is the ID of the subscription this invoice is associated with (only present for subscription-based invoices)"""
 
-    subtotal: Optional[float] = None
+    subtotal: Optional[str] = None
     r"""subtotal is the sum of all line items before any taxes, discounts, or additional fees"""
 
     taxes: Optional[List[DtoTaxAppliedResponse]] = None
@@ -223,16 +223,16 @@ class DtoInvoiceResponse(BaseModel):
 
     tenant_id: Optional[str] = None
 
-    total: Optional[float] = None
+    total: Optional[str] = None
     r"""total is the final amount including taxes, fees, and discounts"""
 
-    total_discount: Optional[float] = None
+    total_discount: Optional[str] = None
     r"""total_discount is the sum of all coupon discounts applied to the invoice"""
 
-    total_prepaid_credits_applied: Optional[float] = None
+    total_prepaid_credits_applied: Optional[str] = None
     r"""total_prepaid_credits_applied is the total amount of prepaid credits applied to this invoice."""
 
-    total_tax: Optional[float] = None
+    total_tax: Optional[str] = None
     r"""total_tax is the sum of all taxes combined at the invoice level."""
 
     updated_at: Optional[str] = None

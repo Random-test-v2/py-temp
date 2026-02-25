@@ -6,12 +6,12 @@ from flexprice_py.utils import FieldMetadata, PathParamMetadata
 from typing_extensions import Annotated, TypedDict
 
 
-class GetTenantRequestTypedDict(TypedDict):
+class GetTenantByIDRequestTypedDict(TypedDict):
     id: str
     r"""Tenant ID"""
 
 
-class GetTenantRequest(BaseModel):
+class GetTenantByIDRequest(BaseModel):
     id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
