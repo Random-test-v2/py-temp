@@ -1,15 +1,15 @@
 <!-- Start SDK Example Usage [usage] -->
 ```python
 # Synchronous Example
-from flexprice_py import Flexprice
+from openapi import SDK
 
 
-with Flexprice(
+with SDK(
     server_url="https://api.example.com",
     api_key_auth="<YOUR_API_KEY_HERE>",
-) as flexprice:
+) as sdk:
 
-    res = flexprice.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
+    res = sdk.addons.create_addon(lookup_key="<value>", name="<value>", type_="multiple_instance")
 
     # Handle response
     print(res)
@@ -22,16 +22,16 @@ The same SDK client can also be used to make asynchronous requests by importing 
 ```python
 # Asynchronous Example
 import asyncio
-from flexprice_py import Flexprice
+from openapi import SDK
 
 async def main():
 
-    async with Flexprice(
+    async with SDK(
         server_url="https://api.example.com",
         api_key_auth="<YOUR_API_KEY_HERE>",
-    ) as flexprice:
+    ) as sdk:
 
-        res = await flexprice.addons.create_addon_async(lookup_key="<value>", name="<value>", type_="multiple_instance")
+        res = await sdk.addons.create_addon_async(lookup_key="<value>", name="<value>", type_="multiple_instance")
 
         # Handle response
         print(res)
